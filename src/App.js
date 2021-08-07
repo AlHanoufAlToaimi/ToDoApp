@@ -17,8 +17,8 @@ class App extends Component {
 
 handleSubmit=(event)=> {
   event.preventDefault();
-  this.setState({[event.target.name]:event.target.value});
-  this.props.addTodo({ task: this.state.todoTitle,id: this.props.toDoList.length, });
+  //this.setState({[event.target.name]:event.target.value});
+  this.props.addTodo({ id: this.props.toDoList.length,task: this.state.todoTitle });
   this.state = { todoTitle: ''};
 }
 
@@ -54,8 +54,10 @@ return (
       <td>{task}</td>
      
       <td><input  className="form-check-input" type="checkbox" value="Done"/> </td>
-      <td> <input type="button" value="Delete Task" className="btn btn-danger" /></td>
-      {/* onClick={()=>deleteTodo({ task: todoTitle, id: toDoList.length }) */}
+      <td> <input type="button" value="Delete Task" className="btn btn-danger"
+      // onClick={() => this.handleDelete({id})}
+ onClick={()=>this.props.deleteTodo({id,task })} /></td> 
+
       </tr> ))}
           </tbody>
           </table>
@@ -77,7 +79,7 @@ return (
       const mapDispatchToProps = (dispatch)=> {
         return{
           addTodo:(todo)=>dispatch({type:"ADD",payload:{ todo }}),
-        
+          deleteTodo:(todo)=>dispatch({type:"DELETE",payload:{ todo }})
       
         }
       }

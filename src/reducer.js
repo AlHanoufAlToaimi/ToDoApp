@@ -1,8 +1,7 @@
 const initialState = {
     toDoList: [{ id: 0, task: 'Attend MERN Class' },
     {id:1,task:"Send XY Email"},
-    {id:2,task:"Call School"},
-    {id:3,task:"Call Bank"}
+    {id:2,task:"Call School"}
     ]
   
   };
@@ -17,15 +16,21 @@ const initialState = {
   
    // break;
   
-  //   case 'DELETE':
-  // //    return state.filter(toDoList => toDoList.id !== action.id);
-  // return {...state,
-  //   toDoList: state.toDoList.filter(t => t !== action.payload)}
-  
-  //            //   break;}
+     case 'DELETE':{
+
+    
+           
+            return {
+              ...state,
+              toDoList: [...state.toDoList.filter((todo) => todo.id !== action.payload.todo.id)]
+            };
+          }
+   
+      //       break;
                 
-  }
-  return state;
+  
+  default:
+  return state;}
   };
   
   export default reducer;
