@@ -36,3 +36,24 @@
     transform: rotate(360deg);
   }
 }
+
+
+body {
+  position: relative;
+  width: 700px;
+  padding: 30px 30px 15px;
+  background: palevioletred;
+  border-width: 2px;
+  border-color: darkgray; 
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  margin: 20px auto;
+}
+
+.table{
+  text-align: center;
+}
+
+
+
+
