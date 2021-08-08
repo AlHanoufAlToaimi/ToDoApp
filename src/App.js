@@ -7,7 +7,7 @@ import reducer from './reducer';
 class App extends Component {  
   constructor(props){
     super(props);
-    this.state = { todoTitle: "", nextId:4}
+    this.state = { todo:[], todoTitle: "", nextId:4}
   }
   
   handleChange=(event)=> {
@@ -21,19 +21,20 @@ class App extends Component {
   }
   
   render() { 
-
-    
-      const mystyle = {
-       
-        backgroundColor: "palevioletred",
-        padding: "10px",
-        fontFamily: "Arial"
-      };
+    const mystyle = {
+      width: "100%",
+      backgroundColor:"whitesmoke",
+      padding: "10px",
+      borderradius: "20px",
+      boxshadow: "4px 3px 7px 2px #00000040",
+      padding: "1rem",
+      boxsizing: "border-box"
+    };
     
     return (
     
     <div className="container-fluid" style={mystyle}>
-      <h2 style={{color:"DodgerBlue"}}>Track Your Task</h2>
+      <h2 style={{color:"darkslateblue"}}>Track Your Task</h2>
       <form className="form-group" > 
       <input name="todoTitle" type="text" className="form-control" placeholder="Enter New Task" onChange={this.handleChange}/>
       <br/> <input className="btnn" type="submit" value="Add New Task" className="btn btn-success" onClick={this.handleSubmit}/>
@@ -46,7 +47,7 @@ class App extends Component {
               <tr>
                 <th>Task Description</th>
                 <th>Complete</th>
-                <th> </th>
+                <th>Delete</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -55,7 +56,7 @@ class App extends Component {
                     <td>{task}</td>
                     
                     <td><input  className="form-check-input" type="checkbox" value="Done"/> </td>
-                    <td><input type="button" value="Delete Task" className="btn btn-danger" onClick={()=>this.props.deleteTodo({id,task })} /></td> 
+                    <td><input type="button" value="X" className="btn btn-danger" onClick={()=>this.props.deleteTodo({id,task })} /></td> 
                     </tr> ))}
                     </tbody>
                     </table>
